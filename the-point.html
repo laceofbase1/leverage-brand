@@ -111,6 +111,25 @@
 </head>
 <body>
 
+<!-- reusable secondary mark: the mic-lever -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <defs>
+    <g id="micred">
+      <line x1="0" y1="0" x2="468" y2="0" stroke="var(--red)" stroke-width="44" stroke-linecap="round"/>
+      <line x1="50" y1="-20" x2="50" y2="20" stroke="#0d0b0a" stroke-width="5"/>
+      <line x1="470" y1="0" x2="598" y2="0" stroke="var(--red)" stroke-width="54" stroke-linecap="round"/>
+      <circle cx="660" cy="0" r="78" fill="var(--red)"/>
+      <line x1="688" y1="-58" x2="688" y2="58" stroke="#0d0b0a" stroke-width="6" stroke-linecap="round"/>
+      <line x1="710" y1="-44" x2="710" y2="44" stroke="#0d0b0a" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <g id="micsolid" fill="currentColor" stroke="currentColor">
+      <line x1="0" y1="0" x2="468" y2="0" stroke-width="44" stroke-linecap="round"/>
+      <line x1="470" y1="0" x2="598" y2="0" stroke-width="54" stroke-linecap="round"/>
+      <circle cx="660" cy="0" r="78"/>
+    </g>
+  </defs>
+</svg>
+
 <!-- ===================== HERO ===================== -->
 <header class="hero">
   <div class="wrap">
@@ -202,6 +221,77 @@
         <div class="wm-word" style="font-size:46px">L<span class="redt">.</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===================== SECONDARY MARK ===================== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="seclabel">Secondary &mdash; the mic</div>
+    <div class="h2">A picture for where the word won&rsquo;t fit.</div>
+    <p class="sub">The wordmark leads. But an avatar, an app tile, a sticker or an episode thumbnail needs an <b>image</b>. So the show carries a secondary mark: the lever <b>is</b> the mic, balanced on the fulcrum, with the red &ldquo;point&rdquo; at the pivot. Same story as the wordmark, told as a picture.</p>
+
+    <div class="grid g2" style="margin-top:32px">
+      <div class="box center" style="background:var(--ink-2);min-height:320px">
+        <div class="boxlab">Secondary mark &middot; primary colorway</div>
+        <svg width="470" viewBox="0 0 1000 600" style="max-width:92%;height:auto" aria-label="secondary mark">
+          <path d="M470 372 L376 516 L564 516 Z" fill="var(--bone)"/>
+          <use href="#micred" transform="translate(150 452) rotate(-13)"/>
+          <circle cx="470" cy="378" r="32" fill="var(--red)"/>
+        </svg>
+      </div>
+      <div class="grid" style="grid-template-rows:1fr 1fr;gap:20px">
+        <div class="box center" style="background:var(--red)">
+          <div class="boxlab" style="color:oklch(0.2 0.05 31)">Reversed</div>
+          <svg width="300" viewBox="0 0 1000 600" style="max-width:84%;height:auto;color:var(--bone)" aria-label="reversed">
+            <path d="M470 372 L376 516 L564 516 Z" fill="var(--bone)"/>
+            <use href="#micsolid" transform="translate(150 452) rotate(-13)"/>
+            <circle cx="470" cy="378" r="32" fill="var(--bone)"/>
+          </svg>
+        </div>
+        <div class="box center" style="background:var(--bone)">
+          <div class="boxlab" style="color:oklch(0.45 0.02 40)">One-color</div>
+          <svg width="300" viewBox="0 0 1000 600" style="max-width:84%;height:auto;color:var(--ink)" aria-label="one color">
+            <path d="M470 372 L376 516 L564 516 Z" fill="var(--ink)"/>
+            <use href="#micsolid" transform="translate(150 452) rotate(-13)"/>
+            <circle cx="470" cy="378" r="32" fill="var(--ink)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:20px">
+      <div class="box center" style="background:var(--ink-2);padding:36px">
+        <div class="boxlab">Lockup with the wordmark</div>
+        <svg width="230" viewBox="0 0 1000 430" style="max-width:66%;height:auto" aria-label="lockup">
+          <path d="M470 250 L392 386 L548 386 Z" fill="var(--bone)"/>
+          <use href="#micred" transform="translate(212 336) rotate(-13) scale(0.8)"/>
+          <circle cx="470" cy="264" r="26" fill="var(--red)"/>
+        </svg>
+        <div class="wm-word" style="font-size:clamp(28px,5vw,48px);margin-top:10px">LEVERAGE<span style="color:var(--red)">.</span></div>
+      </div>
+      <div class="box center" style="background:var(--ink-2)">
+        <div class="boxlab">Small &amp; app icon</div>
+        <div style="display:flex;gap:22px;align-items:center">
+          <div style="width:116px;height:116px;border-radius:24px;background:var(--ink);display:grid;place-items:center;border:1px solid var(--line)">
+            <svg width="96" viewBox="0 0 1000 600" style="height:auto" aria-label="app icon">
+              <path d="M470 372 L376 516 L564 516 Z" fill="var(--bone)"/>
+              <use href="#micred" transform="translate(150 452) rotate(-13)"/>
+              <circle cx="470" cy="378" r="32" fill="var(--red)"/>
+            </svg>
+          </div>
+          <div style="width:56px;height:56px;border-radius:13px;background:var(--ink);display:grid;place-items:center;border:1px solid var(--line)">
+            <svg width="48" viewBox="0 0 1000 600" style="height:auto;color:var(--bone)" aria-label="55px">
+              <path d="M470 372 L376 516 L564 516 Z" fill="var(--bone)"/>
+              <use href="#micsolid" transform="translate(150 452) rotate(-13)"/>
+              <circle cx="470" cy="378" r="32" fill="var(--bone)"/>
+            </svg>
+          </div>
+          <span class="mono" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--bone-dim)">detailed for big,<br>solid for tiny</span>
+        </div>
+      </div>
+    </div>
+    <p class="sub" style="margin-top:24px"><b>How it&rsquo;s used:</b> the wordmark stays primary for headers and covers; the mic mark is the avatar, app tile, episode-thumbnail badge and merch graphic. Detailed version at large sizes, solid silhouette when it&rsquo;s small.</p>
   </div>
 </section>
 
