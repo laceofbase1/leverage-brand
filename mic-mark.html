@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LEVERAGE — Mic Mark Exploration</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#161311; --ink-2:#201c19; --bone:#eee8e0; --dim:#a89f95; --red:#e23a22; --line:#2c2620; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ background:var(--ink); color:var(--bone); font-family:'Archivo',sans-serif; -webkit-font-smoothing:antialiased; line-height:1.5; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 clamp(20px,5vw,56px); }
+  svg{ display:block; }
+  .mono{ font-family:'IBM Plex Mono',monospace; }
+  .dot{ color:var(--red); }
+
+  header{ padding:clamp(50px,8vw,92px) 0 clamp(26px,4vw,44px); }
+  .ey{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--red); }
+  header h1{ font-weight:800; font-size:clamp(26px,5vw,46px); letter-spacing:-.01em; margin:.3em 0 .3em; line-height:1.04; }
+  header p{ color:var(--dim); max-width:60ch; font-size:clamp(14.5px,1.7vw,17px); }
+  header p b{ color:var(--bone); font-weight:600; }
+
+  .sec{ padding:clamp(34px,5vw,56px) 0; border-top:1px solid var(--line); }
+  .seclabel{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--dim); margin-bottom:26px; }
+
+  .compare{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media(max-width:640px){ .compare{ grid-template-columns:1fr; } }
+  .panel{ background:var(--ink-2); border:1px solid var(--line); border-radius:18px; padding:34px; display:grid; place-items:center; min-height:220px; position:relative; }
+  .panel .plab{ position:absolute; top:14px; left:16px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--dim); }
+
+  .three{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media(max-width:760px){ .three{ grid-template-columns:1fr; } }
+  .vcap{ font-size:13.5px; color:var(--dim); margin-top:12px; text-align:center; }
+  .vcap b{ color:var(--bone); font-weight:600; }
+
+  .lockup{ background:var(--ink-2); border:1px solid var(--line); border-radius:18px; padding:clamp(30px,5vw,56px); display:grid; place-items:center; }
+  .wm{ font-weight:800; letter-spacing:.02em; font-size:clamp(36px,8vw,88px); line-height:1; margin-top:18px; }
+
+  .icons{ display:flex; gap:20px; align-items:center; flex-wrap:wrap; margin-top:20px; }
+  .icard{ display:grid; place-items:center; gap:10px; }
+  .icard .ic-lab{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--dim); }
+  .sq{ border-radius:16px; display:grid; place-items:center; }
+
+  footer{ padding:clamp(40px,6vw,70px) 0 clamp(70px,10vw,110px); border-top:1px solid var(--line); }
+  footer p{ color:var(--dim); max-width:66ch; font-size:15px; }
+  footer p b{ color:var(--bone); font-weight:600; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="ey">Leverage &middot; The Point &middot; Mark exploration</p>
+    <h1>The lever, as a boom mic.</h1>
+    <p>Same idea as the tipping-beam mark, but the line &amp; dot become a <b>mic stand with a microphone</b>, and the triangle stays as the fulcrum / base. Two meanings in one mark: <b>leverage</b> and <b>a podcast</b>. Three takes below, from literal to minimal.</p>
+  </div>
+</header>
+
+<!-- reference vs concept -->
+<section class="sec">
+  <div class="wrap">
+    <div class="seclabel">Before &rarr; after</div>
+    <div class="compare">
+      <div class="panel">
+        <div class="plab">Current &middot; tipping beam</div>
+        <svg width="230" height="120" viewBox="0 0 260 150" aria-label="current mark">
+          <line x1="48" y1="96" x2="212" y2="72" stroke="var(--bone)" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="212" cy="72" r="13" fill="var(--red)"/>
+          <path d="M130 84 L114 112 L146 112 Z" fill="var(--bone)"/>
+        </svg>
+      </div>
+      <div class="panel">
+        <div class="plab" style="color:var(--red)">New &middot; boom mic</div>
+        <!-- primary mic mark -->
+        <svg width="230" height="120" viewBox="0 0 260 150" aria-label="mic mark">
+          <!-- boom arm -->
+          <line x1="48" y1="98" x2="205" y2="78" stroke="var(--bone)" stroke-width="8" stroke-linecap="round"/>
+          <!-- fulcrum / base -->
+          <path d="M128 88 L112 114 L144 114 Z" fill="var(--bone)"/>
+          <!-- mic: neck + capsule + grille -->
+          <line x1="205" y1="78" x2="205" y2="64" stroke="var(--bone)" stroke-width="4" stroke-linecap="round"/>
+          <rect x="192" y="18" width="26" height="50" rx="13" fill="var(--red)"/>
+          <g stroke="rgba(255,255,255,.55)" stroke-width="2.2" stroke-linecap="round">
+            <line x1="199" y1="30" x2="211" y2="30"/>
+            <line x1="199" y1="37" x2="211" y2="37"/>
+            <line x1="199" y1="44" x2="211" y2="44"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- three variants -->
+<section class="sec">
+  <div class="wrap">
+    <div class="seclabel">Three takes</div>
+    <div class="three">
+      <!-- A handheld capsule -->
+      <div>
+        <div class="panel" style="min-height:240px">
+          <div class="plab">A</div>
+          <svg width="200" height="150" viewBox="0 0 260 170" aria-label="handheld mic">
+            <line x1="46" y1="112" x2="206" y2="92" stroke="var(--bone)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M128 102 L112 130 L144 130 Z" fill="var(--bone)"/>
+            <line x1="206" y1="92" x2="206" y2="78" stroke="var(--bone)" stroke-width="4" stroke-linecap="round"/>
+            <rect x="193" y="30" width="26" height="52" rx="13" fill="var(--red)"/>
+            <g stroke="rgba(255,255,255,.55)" stroke-width="2.2" stroke-linecap="round">
+              <line x1="200" y1="42" x2="212" y2="42"/>
+              <line x1="200" y1="49" x2="212" y2="49"/>
+              <line x1="200" y1="56" x2="212" y2="56"/>
+            </g>
+          </svg>
+        </div>
+        <div class="vcap"><b>A &middot; Standing mic.</b> Vocal-mic capsule on the end. Most literal.</div>
+      </div>
+      <!-- B studio condenser hanging -->
+      <div>
+        <div class="panel" style="min-height:240px">
+          <div class="plab">B</div>
+          <svg width="200" height="150" viewBox="0 0 260 170" aria-label="condenser boom mic">
+            <line x1="46" y1="66" x2="206" y2="86" stroke="var(--bone)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M128 76 L112 104 L144 104 Z" fill="var(--bone)"/>
+            <!-- yoke down from boom end -->
+            <line x1="206" y1="86" x2="206" y2="96" stroke="var(--bone)" stroke-width="4" stroke-linecap="round"/>
+            <!-- hanging condenser capsule -->
+            <rect x="192" y="96" width="28" height="50" rx="12" fill="var(--red)"/>
+            <g stroke="rgba(255,255,255,.5)" stroke-width="2.2" stroke-linecap="round">
+              <line x1="199" y1="108" x2="213" y2="108"/>
+              <line x1="199" y1="116" x2="213" y2="116"/>
+              <line x1="199" y1="124" x2="213" y2="124"/>
+            </g>
+          </svg>
+        </div>
+        <div class="vcap"><b>B &middot; Boom mic.</b> Studio capsule hanging off the arm. Most &ldquo;podcast.&rdquo;</div>
+      </div>
+      <!-- C minimal -->
+      <div>
+        <div class="panel" style="min-height:240px">
+          <div class="plab">C</div>
+          <svg width="200" height="150" viewBox="0 0 260 170" aria-label="minimal mic dot">
+            <line x1="46" y1="104" x2="206" y2="84" stroke="var(--bone)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M128 94 L112 122 L144 122 Z" fill="var(--bone)"/>
+            <line x1="206" y1="84" x2="206" y2="74" stroke="var(--bone)" stroke-width="4" stroke-linecap="round"/>
+            <!-- rounded dot-mic -->
+            <path d="M188 58 a18 18 0 0 1 36 0 v6 a18 18 0 0 1 -36 0 Z" fill="var(--red)"/>
+            <g stroke="rgba(255,255,255,.5)" stroke-width="2.2" stroke-linecap="round">
+              <line x1="198" y1="52" x2="214" y2="52"/>
+              <line x1="198" y1="60" x2="214" y2="60"/>
+            </g>
+          </svg>
+        </div>
+        <div class="vcap"><b>C &middot; Mic dot.</b> Keeps the round &ldquo;point,&rdquo; just hints a grille. Most minimal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- modern & retro -->
+<section class="sec">
+  <div class="wrap">
+    <div class="seclabel">Modern &amp; retro</div>
+    <div class="compare">
+      <!-- MODERN -->
+      <div>
+        <div class="panel" style="min-height:250px">
+          <div class="plab" style="color:var(--red)">Modern &middot; studio condenser</div>
+          <svg width="210" height="150" viewBox="0 0 260 170" aria-label="modern condenser mic">
+            <line x1="46" y1="112" x2="206" y2="92" stroke="var(--bone)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M128 102 L112 130 L144 130 Z" fill="var(--bone)"/>
+            <line x1="206" y1="92" x2="206" y2="84" stroke="var(--bone)" stroke-width="4" stroke-linecap="round"/>
+            <!-- shock-mount cradle -->
+            <ellipse cx="206" cy="56" rx="22" ry="27" fill="none" stroke="var(--bone)" stroke-width="3"/>
+            <!-- capsule -->
+            <rect x="196" y="32" width="20" height="48" rx="10" fill="var(--red)"/>
+            <g stroke="rgba(255,255,255,.55)" stroke-width="1.8" stroke-linecap="round">
+              <line x1="201" y1="43" x2="211" y2="43"/>
+              <line x1="201" y1="49" x2="211" y2="49"/>
+              <line x1="201" y1="55" x2="211" y2="55"/>
+            </g>
+          </svg>
+        </div>
+        <div class="lockup" style="margin-top:16px;padding:26px">
+          <svg width="120" height="78" viewBox="0 0 200 128" aria-label="modern lockup">
+            <line x1="30" y1="86" x2="158" y2="70" stroke="var(--bone)" stroke-width="7" stroke-linecap="round"/>
+            <path d="M96 78 L82 102 L110 102 Z" fill="var(--bone)"/>
+            <line x1="158" y1="70" x2="158" y2="63" stroke="var(--bone)" stroke-width="3.4" stroke-linecap="round"/>
+            <ellipse cx="158" cy="40" rx="18" ry="22" fill="none" stroke="var(--bone)" stroke-width="2.6"/>
+            <rect x="150" y="20" width="16" height="40" rx="8" fill="var(--red)"/>
+            <g stroke="rgba(255,255,255,.55)" stroke-width="1.6" stroke-linecap="round"><line x1="154" y1="29" x2="162" y2="29"/><line x1="154" y1="34" x2="162" y2="34"/><line x1="154" y1="39" x2="162" y2="39"/></g>
+          </svg>
+          <div class="wm" style="font-size:clamp(28px,5.5vw,46px);margin-top:14px">LEVERAGE<span class="dot">.</span></div>
+        </div>
+        <div class="vcap"><b>Modern.</b> A condenser in a shock-mount cradle. Sleek, current, unmistakably a studio.</div>
+      </div>
+
+      <!-- RETRO -->
+      <div>
+        <div class="panel" style="min-height:250px">
+          <div class="plab" style="color:var(--red)">Retro &middot; broadcast ribbon</div>
+          <svg width="210" height="150" viewBox="0 0 260 170" aria-label="retro broadcast mic">
+            <line x1="46" y1="112" x2="206" y2="92" stroke="var(--bone)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M128 102 L112 130 L144 130 Z" fill="var(--bone)"/>
+            <line x1="206" y1="92" x2="206" y2="86" stroke="var(--bone)" stroke-width="4" stroke-linecap="round"/>
+            <!-- swivel yoke -->
+            <path d="M187 50 L187 66 L206 84 L225 66 L225 50" fill="none" stroke="var(--bone)" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/>
+            <!-- body -->
+            <rect x="190" y="28" width="32" height="48" rx="9" fill="var(--red)"/>
+            <!-- chrome bands -->
+            <g stroke="var(--bone)" stroke-width="3.2" stroke-linecap="round">
+              <line x1="195" y1="40" x2="217" y2="40"/>
+              <line x1="195" y1="52" x2="217" y2="52"/>
+              <line x1="195" y1="64" x2="217" y2="64"/>
+            </g>
+          </svg>
+        </div>
+        <div class="lockup" style="margin-top:16px;padding:26px">
+          <svg width="120" height="78" viewBox="0 0 200 128" aria-label="retro lockup">
+            <line x1="30" y1="86" x2="158" y2="70" stroke="var(--bone)" stroke-width="7" stroke-linecap="round"/>
+            <path d="M96 78 L82 102 L110 102 Z" fill="var(--bone)"/>
+            <line x1="158" y1="70" x2="158" y2="64" stroke="var(--bone)" stroke-width="3.2" stroke-linecap="round"/>
+            <path d="M144 40 L144 52 L158 66 L172 52 L172 40" fill="none" stroke="var(--bone)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+            <rect x="146" y="20" width="24" height="38" rx="7" fill="var(--red)"/>
+            <g stroke="var(--bone)" stroke-width="2.4" stroke-linecap="round"><line x1="150" y1="29" x2="166" y2="29"/><line x1="150" y1="38" x2="166" y2="38"/><line x1="150" y1="47" x2="166" y2="47"/></g>
+          </svg>
+          <div class="wm" style="font-size:clamp(28px,5.5vw,46px);margin-top:14px">LEVERAGE<span class="dot">.</span></div>
+        </div>
+        <div class="vcap"><b>Retro.</b> A 1940s announcer mic with chrome bands and a swivel yoke. Nostalgic, premium, &ldquo;on air.&rdquo;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- in context -->
+<section class="sec">
+  <div class="wrap">
+    <div class="seclabel">In the wordmark &amp; as an icon (using take A)</div>
+    <div class="lockup">
+      <svg width="150" height="86" viewBox="0 0 200 116" aria-label="mic lockup">
+        <line x1="34" y1="86" x2="160" y2="70" stroke="var(--bone)" stroke-width="7" stroke-linecap="round"/>
+        <path d="M100 78 L86 102 L114 102 Z" fill="var(--bone)"/>
+        <line x1="160" y1="70" x2="160" y2="58" stroke="var(--bone)" stroke-width="3.4" stroke-linecap="round"/>
+        <rect x="149" y="20" width="22" height="44" rx="11" fill="var(--red)"/>
+        <g stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round">
+          <line x1="155" y1="30" x2="165" y2="30"/>
+          <line x1="155" y1="36" x2="165" y2="36"/>
+          <line x1="155" y1="42" x2="165" y2="42"/>
+        </g>
+      </svg>
+      <div class="wm">LEVERAGE<span class="dot">.</span></div>
+      <div class="mono" style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--dim);margin-top:14px">Dr. Shawn Dill</div>
+    </div>
+
+    <div class="icons">
+      <div class="icard">
+        <div class="sq" style="width:104px;height:104px;background:var(--ink-2);border:1px solid var(--line)">
+          <svg width="72" height="72" viewBox="0 0 120 120" aria-label="app icon">
+            <line x1="24" y1="78" x2="92" y2="64" stroke="var(--bone)" stroke-width="6" stroke-linecap="round"/>
+            <path d="M58 70 L46 92 L70 92 Z" fill="var(--bone)"/>
+            <line x1="92" y1="64" x2="92" y2="54" stroke="var(--bone)" stroke-width="3" stroke-linecap="round"/>
+            <rect x="82" y="22" width="20" height="38" rx="10" fill="var(--red)"/>
+            <g stroke="rgba(255,255,255,.55)" stroke-width="1.8" stroke-linecap="round">
+              <line x1="88" y1="31" x2="96" y2="31"/>
+              <line x1="88" y1="37" x2="96" y2="37"/>
+            </g>
+          </svg>
+        </div>
+        <div class="ic-lab">App icon</div>
+      </div>
+      <div class="icard">
+        <div class="sq" style="width:104px;height:104px;background:var(--red)">
+          <svg width="72" height="72" viewBox="0 0 120 120" aria-label="app icon red">
+            <line x1="24" y1="78" x2="92" y2="64" stroke="var(--ink)" stroke-width="6" stroke-linecap="round"/>
+            <path d="M58 70 L46 92 L70 92 Z" fill="var(--ink)"/>
+            <line x1="92" y1="64" x2="92" y2="54" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+            <rect x="82" y="22" width="20" height="38" rx="10" fill="var(--ink)"/>
+            <g stroke="rgba(238,232,224,.6)" stroke-width="1.8" stroke-linecap="round">
+              <line x1="88" y1="31" x2="96" y2="31"/>
+              <line x1="88" y1="37" x2="96" y2="37"/>
+            </g>
+          </svg>
+        </div>
+        <div class="ic-lab">On red</div>
+      </div>
+      <div class="icard">
+        <div class="sq" style="width:56px;height:56px;background:var(--ink-2);border:1px solid var(--line)">
+          <svg width="40" height="40" viewBox="0 0 120 120" aria-label="tiny">
+            <line x1="24" y1="78" x2="92" y2="64" stroke="var(--bone)" stroke-width="7" stroke-linecap="round"/>
+            <path d="M58 70 L46 92 L70 92 Z" fill="var(--bone)"/>
+            <line x1="92" y1="64" x2="92" y2="54" stroke="var(--bone)" stroke-width="3.4" stroke-linecap="round"/>
+            <rect x="82" y="24" width="20" height="36" rx="10" fill="var(--red)"/>
+          </svg>
+        </div>
+        <div class="ic-lab">55px test</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Tell me which take you like (<b>A</b> standing, <b>B</b> boom, or <b>C</b> minimal), and whether the mic should read more <b>vocal</b> or more <b>studio</b>. I&rsquo;ll refine the winner, then it can either replace the plain beam or live as an <b>alternate &ldquo;mic&rdquo; mark</b> for episode art and merch while the clean beam stays the primary.</p>
+  </div>
+</footer>
+
+</body>
+</html>
