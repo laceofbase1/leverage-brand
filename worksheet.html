@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LEVERAGE — Episode Worksheet (editable)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#161311; --ink-2:#201c19; --bone:#eee8e0;
+    --paper:#f5f1ea; --paper-2:#ece5da; --red:#e23a22; --oxblood:#7a2a1c;
+    --ash:#8a827c; --rule:#d8cfc2; --ink-soft:#3a332e;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ background:#0e0c0b; color:var(--ink); font-family:'Archivo',sans-serif; -webkit-font-smoothing:antialiased; padding:0 0 80px; }
+  .mono{ font-family:'IBM Plex Mono',monospace; }
+
+  /* toolbar (screen only) */
+  .bar{ position:sticky; top:0; z-index:20; background:#0e0c0b; border-bottom:1px solid #262019; padding:14px clamp(16px,4vw,40px); display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .bar .b-title{ color:var(--bone); font-weight:700; font-size:15px; }
+  .bar .b-title .redt{ color:var(--red); }
+  .bar .hint{ color:#7d756d; font-size:12.5px; margin-left:auto; }
+  .btn{ font-family:'Archivo'; font-weight:700; font-size:13px; letter-spacing:.02em; border:0; border-radius:100px; padding:11px 20px; cursor:pointer; background:var(--red); color:#fff; }
+  .btn.ghost{ background:transparent; color:var(--bone); border:1px solid #3a322b; }
+  .btn:active{ transform:translateY(1px); }
+
+  .stage{ display:flex; justify-content:center; padding:clamp(18px,4vw,44px) 16px 0; }
+
+  /* the sheet — US Letter ratio */
+  .sheet{ width:100%; max-width:816px; aspect-ratio:816/1056; background:var(--paper); border-radius:6px; box-shadow:0 30px 80px rgba(0,0,0,.5); overflow:hidden; display:flex; flex-direction:column; }
+  .sheet-inner{ padding:clamp(26px,4.4vw,44px) clamp(26px,4.6vw,48px); display:flex; flex-direction:column; height:100%; }
+
+  /* header */
+  .ws-head{ display:flex; align-items:center; justify-content:space-between; padding-bottom:16px; border-bottom:2px solid var(--ink); }
+  .wm{ display:flex; align-items:center; gap:12px; }
+  .wm .word{ font-weight:800; font-size:clamp(20px,3vw,28px); letter-spacing:.01em; color:var(--ink); }
+  .wm .word .redt{ color:var(--red); }
+  .ws-head .kind{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ash); text-align:right; }
+
+  .ep-line{ margin-top:16px; display:flex; align-items:baseline; gap:10px; }
+  .ep-line .no{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; color:var(--red); font-weight:500; }
+  .ep-title{ font-weight:800; font-size:clamp(19px,3.4vw,27px); line-height:1.08; color:var(--ink); }
+  .ep-hook{ margin-top:8px; font-size:clamp(12.5px,1.7vw,14.5px); color:var(--ink-soft); max-width:62ch; }
+
+  /* sections */
+  .sec{ margin-top:clamp(16px,2.6vw,24px); }
+  .sec-h{ display:flex; align-items:center; gap:11px; }
+  .sec-h .num{ font-weight:900; font-size:clamp(15px,2.4vw,19px); color:var(--red); font-family:'IBM Plex Mono',monospace; }
+  .sec-h .t{ font-weight:800; font-size:clamp(13.5px,2vw,16px); letter-spacing:.06em; text-transform:uppercase; color:var(--ink); }
+  .sec-body{ margin-top:9px; padding-left:clamp(24px,4vw,34px); }
+  .idea{ font-size:clamp(13px,1.9vw,15.5px); line-height:1.5; color:var(--ink-soft); }
+
+  .prompt{ margin-top:13px; }
+  .prompt .q{ font-weight:700; font-size:clamp(12.5px,1.7vw,14px); color:var(--ink); }
+  .lines{ margin-top:7px; }
+  .lines .ln{ height:clamp(19px,2.6vw,24px); border-bottom:1px solid var(--rule); }
+
+  .movebox{ margin-top:9px; border:1.5px solid var(--ink); border-radius:8px; padding:clamp(12px,2vw,16px); background:var(--paper-2); }
+  .movebox .q{ font-weight:700; font-size:clamp(12.5px,1.7vw,14px); color:var(--ink); margin-bottom:8px; }
+  .movebox .ln{ height:clamp(19px,2.6vw,24px); border-bottom:1px solid var(--rule); }
+  .movebox .ln:last-child{ border-bottom:0; }
+
+  /* footer CTA */
+  .cta{ margin-top:auto; background:var(--ink); border-radius:10px; padding:clamp(14px,2.2vw,20px) clamp(16px,2.6vw,24px); display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+  .cta .l{ display:flex; align-items:center; gap:13px; }
+  .cta .play{ width:34px; height:34px; border-radius:50%; background:var(--red); display:grid; place-items:center; flex:none; }
+  .cta .lead{ font-weight:800; font-size:clamp(13px,1.9vw,16px); color:var(--bone); }
+  .cta .show{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#a89f95; margin-top:2px; }
+  .cta .url{ font-family:'IBM Plex Mono',monospace; font-size:clamp(11px,1.5vw,13px); color:var(--red); font-weight:500; }
+
+  [contenteditable]{ outline:none; border-radius:3px; transition:background .12s; }
+  [contenteditable]:hover{ background:rgba(226,58,34,.07); }
+  [contenteditable]:focus{ background:rgba(226,58,34,.11); box-shadow:0 0 0 2px rgba(226,58,34,.35); }
+
+  /* spec (screen only, below sheet) */
+  .spec{ max-width:816px; margin:40px auto 0; color:var(--bone); padding:0 16px; }
+  .spec h3{ font-weight:800; font-size:18px; margin-bottom:6px; }
+  .spec p{ color:#9a938a; }
+  .spec .grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px 30px; margin-top:14px; font-size:13.5px; color:#b8b0a7; }
+  .spec .grid b{ color:var(--bone); font-weight:600; }
+  .spec .mono{ color:#8f877e; }
+
+  @media(max-width:600px){ .spec .grid{ grid-template-columns:1fr; } }
+
+  /* PRINT / PDF */
+  @media print{
+    @page{ size:Letter; margin:0; }
+    body{ background:#fff; padding:0; }
+    .bar,.spec,.no-print{ display:none !important; }
+    .stage{ padding:0; }
+    .sheet{ max-width:none; width:100%; height:100vh; aspect-ratio:auto; border-radius:0; box-shadow:none; }
+    [contenteditable]:hover,[contenteditable]:focus{ background:none; box-shadow:none; }
+    *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bar no-print">
+  <span class="b-title">Leverage <span class="redt">·</span> Episode Worksheet</span>
+  <button class="btn" onclick="window.print()">⤓ &nbsp;Save as PDF</button>
+  <span class="hint">Click any text to edit it. Then Save as PDF to send to your list.</span>
+</div>
+
+<div class="stage">
+  <div class="sheet">
+    <div class="sheet-inner">
+
+      <div class="ws-head">
+        <div class="wm">
+          <svg width="46" height="20" viewBox="0 0 46 20" aria-label="mark"><g transform="translate(23 11)"><line x1="-16" y1="3" x2="16" y2="-3" stroke="#161311" stroke-width="3.4" stroke-linecap="round"/><circle cx="16" cy="-3" r="4" fill="#e23a22"/><path d="M0 1 L-6 10 L6 10 Z" fill="#161311"/></g></svg>
+          <span class="word">LEVERAGE<span class="redt">.</span></span>
+        </div>
+        <div class="kind">Episode<br>Worksheet</div>
+      </div>
+
+      <div class="ep-line">
+        <span class="no" contenteditable="true" spellcheck="false">EP 07</span>
+        <span class="ep-title" contenteditable="true" spellcheck="false">The Amplifier Effect</span>
+      </div>
+      <div class="ep-hook" contenteditable="true" spellcheck="false">How the smallest input, applied at the right point, produces the biggest result, and how to find that point in your own week.</div>
+
+      <div class="sec">
+        <div class="sec-h"><span class="num">01</span><span class="t">The one idea</span></div>
+        <div class="sec-body">
+          <div class="idea" contenteditable="true" spellcheck="false">Effort is not the variable that matters most. Placement is. The same push creates a wildly different result depending on where you apply it. Before you work harder this week, find the point where a little moves a lot.</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h"><span class="num">02</span><span class="t">Where&rsquo;s your leverage?</span></div>
+        <div class="sec-body">
+          <div class="prompt">
+            <div class="q" contenteditable="true" spellcheck="false">What are you currently pushing hardest on?</div>
+            <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+          </div>
+          <div class="prompt">
+            <div class="q" contenteditable="true" spellcheck="false">Where might a smaller, smarter move create a bigger result?</div>
+            <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+          </div>
+          <div class="prompt">
+            <div class="q" contenteditable="true" spellcheck="false">What would you stop doing if effort weren&rsquo;t the answer?</div>
+            <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h"><span class="num">03</span><span class="t">Your one move</span></div>
+        <div class="sec-body">
+          <div class="movebox">
+            <div class="q" contenteditable="true" spellcheck="false">The single highest-leverage move I&rsquo;ll make this week:</div>
+            <div class="ln"></div><div class="ln"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <div class="l">
+          <span class="play"><svg width="12" height="13" viewBox="0 0 12 13"><path d="M0 0 L12 6.5 L0 13 Z" fill="#fff"/></svg></span>
+          <div>
+            <div class="lead" contenteditable="true" spellcheck="false">Hear the full breakdown &mdash; listen now</div>
+            <div class="show">Leverage with Dr. Shawn Dill</div>
+          </div>
+        </div>
+        <span class="url" contenteditable="true" spellcheck="false">leveragepodcast.com/07</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="spec no-print">
+  <h3>Canva spec</h3>
+  <div class="grid">
+    <div><b>Page</b> US Letter, 816&times;1056 px @96dpi (or 8.5&times;11 in)</div>
+    <div><b>Fonts</b> Archivo (900/800/700/400) + IBM Plex Mono</div>
+    <div><b>Paper</b> #F5F1EA &nbsp; <b>Panel</b> #ECE5DA</div>
+    <div><b>Ink</b> #161311 &nbsp; <b>Soft ink</b> #3A332E</div>
+    <div><b>Signal red</b> #E23A22 &nbsp; <b>Rule lines</b> #D8CFC2</div>
+    <div><b>Structure</b> Header rule / Ep line / 01 Idea / 02 Prompts / 03 Move / dark CTA</div>
+    <div><b>Section numbers</b> Mono 900, red, hanging left of the heading</div>
+    <div><b>CTA band</b> Ink #161311, red play dot, editable URL in red mono</div>
+  </div>
+</div>
+
+</body>
+</html>

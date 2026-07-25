@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LEVERAGE — Social Kit (editable)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+  :root{ --ink:#161311; --ink-2:#201c19; --bone:#eee8e0; --red:#e23a22; --oxblood:#7a2a1c; --ash:#8a827c; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ background:#0e0c0b; color:var(--bone); font-family:'Archivo',sans-serif; -webkit-font-smoothing:antialiased; padding-bottom:80px; }
+  .mono{ font-family:'IBM Plex Mono',monospace; }
+  .redt{ color:var(--red); }
+
+  .bar{ position:sticky; top:0; z-index:20; background:#0e0c0b; border-bottom:1px solid #262019; padding:14px clamp(16px,4vw,40px); display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .bar .b-title{ font-weight:700; font-size:15px; }
+  .bar .hint{ color:#7d756d; font-size:12.5px; margin-left:auto; }
+
+  .head{ max-width:1080px; margin:0 auto; padding:clamp(28px,5vw,56px) clamp(16px,4vw,40px) 0; }
+  .head .ey{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--red); }
+  .head h1{ font-weight:800; font-size:clamp(26px,4.4vw,42px); margin:.3em 0 .3em; letter-spacing:-.01em; }
+  .head p{ color:#a49b91; max-width:60ch; font-size:15px; }
+
+  .kit{ max-width:1080px; margin:0 auto; padding:clamp(30px,5vw,50px) clamp(16px,4vw,40px) 0; display:flex; flex-direction:column; gap:clamp(34px,5vw,54px); }
+  .item{ }
+  .item-h{ display:flex; align-items:baseline; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
+  .item-h .n{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--red); }
+  .item-h .nm{ font-weight:700; font-size:16px; }
+  .item-h .dim{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:#8f877e; }
+  .dl{ margin-left:auto; font-family:'Archivo'; font-weight:700; font-size:12.5px; border:0; border-radius:100px; padding:9px 17px; background:var(--red); color:#fff; cursor:pointer; }
+  .dl:active{ transform:translateY(1px); }
+
+  .row{ display:flex; gap:22px; align-items:flex-start; flex-wrap:wrap; }
+
+  /* display wrapper keeps rounded corners on screen; .frame is the export target (square corners) */
+  .card{ border-radius:16px; overflow:hidden; box-shadow:0 18px 50px rgba(0,0,0,.45); flex:none; }
+  .frame{ background:var(--ink); position:relative; overflow:hidden; color:var(--bone); display:flex; flex-direction:column; }
+  .sq{ width:360px; aspect-ratio:1/1; }
+  .pt{ width:360px; aspect-ratio:4/5; }
+  .st{ width:303px; aspect-ratio:9/16; }
+
+  /* shared bits */
+  .wm-s{ display:flex; align-items:center; gap:9px; }
+  .wm-s .w{ font-weight:800; font-size:18px; letter-spacing:.01em; }
+  .beam{ }
+  .tag{ display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; background:var(--red); color:#fff; padding:5px 10px; border-radius:100px; }
+  .host{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#a89f95; }
+  .listen{ display:inline-flex; align-items:center; gap:8px; font-weight:800; font-size:13px; color:var(--bone); }
+  .listen .pd{ width:22px;height:22px;border-radius:50%;background:var(--red);display:grid;place-items:center; }
+  .etitle{ font-weight:800; line-height:1.04; letter-spacing:-.01em; }
+
+  [contenteditable]{ outline:none; }
+  [contenteditable]:hover{ box-shadow:0 0 0 2px rgba(226,58,34,.4) inset; }
+  [contenteditable]:focus{ box-shadow:0 0 0 2px rgba(226,58,34,.7) inset; }
+
+  .note{ color:#8f877e; font-size:12.5px; margin-top:10px; }
+  .capturing [contenteditable]{ box-shadow:none !important; }
+
+  .spec{ max-width:1080px; margin:56px auto 0; padding:0 clamp(16px,4vw,40px); }
+  .spec h3{ font-weight:800; font-size:18px; }
+  .spec .g{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px 30px; margin-top:14px; font-size:13.5px; color:#b8b0a7; }
+  .spec .g b{ color:var(--bone); font-weight:600; }
+  @media(max-width:600px){ .spec .g{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <span class="b-title">Leverage <span class="redt">·</span> Social Kit</span>
+  <span class="hint">Click any text to edit. Hit Download on each card for a full-res PNG.</span>
+</div>
+
+<div class="head">
+  <div class="ey">Editable templates</div>
+  <h1>Four formats. Type, then download.</h1>
+  <p>Square, portrait, story and quote, all on The Point brand. Edit the text right on the card, then export a ready-to-post PNG at full resolution. Canva spec is at the bottom.</p>
+</div>
+
+<div class="kit">
+
+  <!-- 1 · SQUARE -->
+  <div class="item">
+    <div class="item-h"><span class="n">01</span><span class="nm">Square post</span><span class="dim">1080 &times; 1080</span>
+      <button class="dl" onclick="downloadCard('f-sq','leverage-square.png')">⤓ Download PNG</button></div>
+    <div class="row">
+      <div class="card">
+        <div class="frame sq" id="f-sq" style="padding:30px;justify-content:space-between">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div class="wm-s"><svg width="40" height="18" viewBox="0 0 40 18"><g transform="translate(20 10)"><line x1="-14" y1="3" x2="14" y2="-3" stroke="#eee8e0" stroke-width="3" stroke-linecap="round"/><circle cx="14" cy="-3" r="3.6" fill="#e23a22"/><path d="M0 1 L-5 9 L5 9 Z" fill="#eee8e0"/></g></svg><span class="w">LEVERAGE<span class="redt">.</span></span></div>
+            <span class="tag" contenteditable="true" spellcheck="false">New episode</span>
+          </div>
+          <div>
+            <div class="mono" style="font-size:11px;letter-spacing:.16em;color:#a89f95;margin-bottom:10px" contenteditable="true" spellcheck="false">EPISODE 07</div>
+            <div class="etitle" contenteditable="true" spellcheck="false" style="font-size:38px">The Amplifier Effect</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end">
+            <span class="host" contenteditable="true" spellcheck="false">Dr. Shawn Dill</span>
+            <span class="listen"><span class="pd"><svg width="8" height="9" viewBox="0 0 8 9"><path d="M0 0 L8 4.5 L0 9 Z" fill="#fff"/></svg></span>Listen now</span>
+          </div>
+        </div>
+      </div>
+      <div class="note">Feed post for IG / LinkedIn.<br>The default announcement.</div>
+    </div>
+  </div>
+
+  <!-- 2 · PORTRAIT -->
+  <div class="item">
+    <div class="item-h"><span class="n">02</span><span class="nm">Portrait post</span><span class="dim">1080 &times; 1350</span>
+      <button class="dl" onclick="downloadCard('f-pt','leverage-portrait.png')">⤓ Download PNG</button></div>
+    <div class="row">
+      <div class="card">
+        <div class="frame pt" id="f-pt" style="padding:32px;justify-content:space-between">
+          <div class="wm-s"><svg width="40" height="18" viewBox="0 0 40 18"><g transform="translate(20 10)"><line x1="-14" y1="3" x2="14" y2="-3" stroke="#eee8e0" stroke-width="3" stroke-linecap="round"/><circle cx="14" cy="-3" r="3.6" fill="#e23a22"/><path d="M0 1 L-5 9 L5 9 Z" fill="#eee8e0"/></g></svg><span class="w">LEVERAGE<span class="redt">.</span></span></div>
+          <div>
+            <span class="tag" contenteditable="true" spellcheck="false">New episode</span>
+            <div class="etitle" contenteditable="true" spellcheck="false" style="font-size:42px;margin:16px 0 14px">The Amplifier Effect</div>
+            <div contenteditable="true" spellcheck="false" style="font-size:15px;line-height:1.4;color:#c8c0b6;max-width:26ch">The smallest input at the right point beats the biggest effort in the wrong one.</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end">
+            <span class="host" contenteditable="true" spellcheck="false">Dr. Shawn Dill</span>
+            <span class="listen"><span class="pd"><svg width="8" height="9" viewBox="0 0 8 9"><path d="M0 0 L8 4.5 L0 9 Z" fill="#fff"/></svg></span>Listen now</span>
+          </div>
+        </div>
+      </div>
+      <div class="note">Taller feed post.<br>More reach on Instagram.</div>
+    </div>
+  </div>
+
+  <!-- 3 · STORY -->
+  <div class="item">
+    <div class="item-h"><span class="n">03</span><span class="nm">Story</span><span class="dim">1080 &times; 1920</span>
+      <button class="dl" onclick="downloadCard('f-st','leverage-story.png')">⤓ Download PNG</button></div>
+    <div class="row">
+      <div class="card">
+        <div class="frame st" id="f-st" style="padding:30px 28px;justify-content:space-between;text-align:center;align-items:center">
+          <div class="wm-s" style="justify-content:center"><svg width="38" height="17" viewBox="0 0 40 18"><g transform="translate(20 10)"><line x1="-14" y1="3" x2="14" y2="-3" stroke="#eee8e0" stroke-width="3" stroke-linecap="round"/><circle cx="14" cy="-3" r="3.6" fill="#e23a22"/><path d="M0 1 L-5 9 L5 9 Z" fill="#eee8e0"/></g></svg><span class="w" style="font-size:16px">LEVERAGE<span class="redt">.</span></span></div>
+          <div>
+            <span class="tag" contenteditable="true" spellcheck="false">New episode</span>
+            <div class="etitle" contenteditable="true" spellcheck="false" style="font-size:40px;margin-top:16px">The Amplifier Effect</div>
+            <div contenteditable="true" spellcheck="false" style="font-size:14px;line-height:1.45;color:#c8c0b6;margin-top:14px">Where&rsquo;s the leverage? Find the point where a little moves a lot.</div>
+          </div>
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:9px;background:var(--red);color:#fff;font-weight:800;font-size:14px;padding:12px 22px;border-radius:100px">
+              <svg width="9" height="10" viewBox="0 0 9 10"><path d="M0 0 L9 5 L0 10 Z" fill="#fff"/></svg><span contenteditable="true" spellcheck="false">Listen now</span>
+            </div>
+            <div class="host" style="margin-top:14px" contenteditable="true" spellcheck="false">Dr. Shawn Dill</div>
+          </div>
+        </div>
+      </div>
+      <div class="note">Full-screen vertical for<br>IG / FB stories, swipe-up ready.</div>
+    </div>
+  </div>
+
+  <!-- 4 · QUOTE -->
+  <div class="item">
+    <div class="item-h"><span class="n">04</span><span class="nm">Quote card</span><span class="dim">1080 &times; 1080</span>
+      <button class="dl" onclick="downloadCard('f-qt','leverage-quote.png')">⤓ Download PNG</button></div>
+    <div class="row">
+      <div class="card">
+        <div class="frame sq" id="f-qt" style="padding:34px;justify-content:space-between">
+          <div style="font-family:'Archivo';font-weight:900;font-size:64px;line-height:.6;color:var(--red)">&ldquo;</div>
+          <div class="etitle" contenteditable="true" spellcheck="false" style="font-size:29px;line-height:1.18">Stop pushing harder. Find the point where a little moves a lot<span class="redt">.</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span class="host" contenteditable="true" spellcheck="false">Dr. Shawn Dill &middot; Leverage</span>
+            <svg width="40" height="18" viewBox="0 0 40 18"><g transform="translate(20 10)"><line x1="-14" y1="3" x2="14" y2="-3" stroke="#eee8e0" stroke-width="3" stroke-linecap="round"/><circle cx="14" cy="-3" r="3.6" fill="#e23a22"/><path d="M0 1 L-5 9 L5 9 Z" fill="#eee8e0"/></g></svg>
+          </div>
+        </div>
+      </div>
+      <div class="note">The shareable soundbite.<br>Pull any line from the episode.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="spec">
+  <h3>Canva spec</h3>
+  <div class="g">
+    <div><b>Sizes</b> Square 1080&sup2; &middot; Portrait 1080&times;1350 &middot; Story 1080&times;1920</div>
+    <div><b>Fonts</b> Archivo (900 title / 800 / 700) + IBM Plex Mono (labels)</div>
+    <div><b>Background</b> Ink #161311 &nbsp; (or Red #E23A22 for a pop variant)</div>
+    <div><b>Text</b> Bone #EEE8E0 &nbsp; Muted #C8C0B6 &nbsp; Mono label #A89F95</div>
+    <div><b>Accent</b> Signal red #E23A22 &mdash; the dot/period, tag pill, listen button</div>
+    <div><b>Margins</b> ~30px on square (scale up ~90px at 1080)</div>
+    <div><b>Mark</b> Tipping beam + red dot, top-left (centered on story)</div>
+    <div><b>Device</b> Red &ldquo;.&rdquo; after LEVERAGE, red &ldquo;&rdquo; on quote card</div>
+  </div>
+</div>
+
+<script>
+  async function downloadCard(id, filename){
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
+    document.body.classList.add('capturing');
+    try{ if(document.fonts && document.fonts.ready) await document.fonts.ready; }catch(e){}
+    try{
+      const scale = 1080 / el.offsetWidth;
+      const canvas = await html2canvas(el, { scale, backgroundColor:'#161311', useCORS:true, logging:false });
+      const a = document.createElement('a');
+      a.download = filename;
+      a.href = canvas.toDataURL('image/png');
+      a.click();
+    }catch(err){
+      alert('Export failed: ' + err.message + '\nTip: this needs an internet connection to load the export library.');
+    }finally{
+      document.body.classList.remove('capturing');
+    }
+  }
+</script>
+
+</body>
+</html>
